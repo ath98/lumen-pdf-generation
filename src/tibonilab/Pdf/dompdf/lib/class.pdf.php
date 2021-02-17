@@ -11,7 +11,7 @@
  * @author  Helmut Tischer <htischer@weihenstephan.org>
  * @author  Ryan H. Masten <ryan.masten@gmail.com>
  * @author  Brian Sweeney <eclecticgeek@gmail.com>
- * @author  Fabien Ménager <fabien.menager@gmail.com>
+ * @author  Fabien Mï¿½nager <fabien.menager@gmail.com>
  * @version $Id: class.pdf.php 469 2012-02-05 22:25:30Z fabien.menager $
  * @license Public Domain http://creativecommons.org/licenses/publicdomain/
  * @package Cpdf
@@ -4207,7 +4207,7 @@ EOT;
    * @param bool $is_mask true if the image is a mask
    * @param bool $mask true if the image is masked
    */
-  function addImagePng($file, $x, $y, $w =  0, $h =  0, &$img, $is_mask = false, $mask = null) {
+  function addImagePng($file, $x, $y, $w , $h , &$img, $is_mask = false, $mask = null) {
     //if already cached, need not to read again
     if ( isset($this->imagelist[$file]) ) {
       $data = null;
@@ -4476,7 +4476,7 @@ EOT;
   /**
    * add a PNG image into the document, from a memory buffer of the file
    */
-  function addPngFromBuf($file, $x, $y, $w =  0, $h =  0, &$data, $is_mask = false, $mask = null) {
+  function addPngFromBuf($file, $x, $y, $w, $h , &$data, $is_mask = false, $mask = null) {
     if ( isset($this->imagelist[$file]) ) {
       $data = null;
       $info['width'] = $this->imagelist[$file]['w'];
@@ -4792,7 +4792,7 @@ EOT;
    *
    * @access private
    */
-  function addJpegImage_common(&$data, $x, $y, $w =  0, $h =  0, $imageWidth, $imageHeight, $channels =  3, $imgname) {
+  function addJpegImage_common(&$data, $x, $y, $w, $h , $imageWidth, $imageHeight, $channels , $imgname) {
     if ( $this->image_iscached($imgname) ) {
       $label = $this->imagelist[$imgname]['label'];
       //debugpng

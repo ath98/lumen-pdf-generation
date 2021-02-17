@@ -254,7 +254,8 @@ class Block_Frame_Decorator extends Frame_Decorator {
 //       return;
 
     $this->_line_boxes[$this->_cl]->br = $br;
-    $y = $this->_line_boxes[$this->_cl]->y + $this->_line_boxes[$this->_cl]->h;
+    $test = (float) $this->_line_boxes[$this->_cl]->h;
+    $y = $this->_line_boxes[$this->_cl]->y + $test;
 
     $new_line = new Line_Box($this, $y);
     

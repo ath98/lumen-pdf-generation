@@ -781,7 +781,7 @@ class Style {
 
     $font = null;
     while ( current($families) ) {
-      list(,$family) = each($families);
+      list(,$family) = current($families);
       //remove leading and trailing string delimiters, e.g. on font names with spaces;
       //remove leading and trailing whitespace
       $family = trim($family, " \t\n\r\x0B\"'");
@@ -804,6 +804,14 @@ class Style {
     }
     throw new DOMPDF_Exception("Unable to find a suitable font replacement for: '" . $this->_props["font_family"] ."'");
     
+  }
+
+  function altEach(&$data){
+    $key = key($data);
+    $ret = ($key === null)? false: [$key, current($data), ‘key’ => $key, ‘value’ => current($data)];
+    next($data);
+    return $ret;
+
   }
 
   /**
